@@ -1,0 +1,43 @@
+
+/**
+ *
+ *	菜单管理CSS文件
+ *	Jerry
+ *	20140527
+ *
+ **/
+
+.width_full {width: 98%;min-width:700px;}
+
+.tdone{width:20px;}
+
+.tab_container{min-height:410px;margin-top:-6px;} /* 列表最小高度      */
+
+.tab2-tablesorter td{border-bottom:1px dotted #cccccc;padding:8px 0px 8px 5px;}
+
+.tab2-tablesorter td:first-child{padding:8px 0px 8px 20px;}
+
+.width_quarter td{border-bottom:1px dotted #cccccc;padding:8px 0px 8px 5px;}
+
+.width_quarter td:first-child{padding:8px 0px 8px 20px;}
+
+.width_3_quarter td{border-bottom:1px dotted #cccccc;padding:8px 0px 8px 5px;}
+
+.width_3_quarter td:first-child{padding:8px 0px 8px 20px;}
+
+#vote_list input[type=text] {height: 22px;vertical-align: middle;padding-left:5px;}
+
+.input_none{border:0px;}
+
+.tablesorter #list_icon_edit{display: none;}
+.tablesorter #list_icon_save{display: none;}
+
+.tablesorter #edit_icon_edit{display: none;}
+.tablesorter #edit_icon_save{display: none;}
+
+
+.icon{margin-right:5px;}
+
+.vote_list_td .td_span{margin-right: 20px;}
+.vote_list_td input[type=text]{width:280px;}
+.vote_list_td .vote_list_td_div{float: right;margin-right: 20px;}

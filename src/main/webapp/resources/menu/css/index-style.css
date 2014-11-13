@@ -1,0 +1,39 @@
+body{
+	/* background-image: url(../images/bg.jpg);
+	background-color:rgb(48, 161, 147); */
+	font-family:"微软雅黑",Arial;
+	background-size:cover;
+	background-attachment:fixed;
+	-webkit-text-size-adjust:none;
+
+}
+p,input,div,span,li{
+	font-family:"微软雅黑",Arial;
+}
+::-webkit-scrollbar {
+	width:6px;
+	height:9px;
+	background-repeat: no-repeat;
+	background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+	background-color:rgba(158, 233, 0, 0.79);
+}
+::-webkit-scrollbar-thumb:hover {
+	background-color:rgba(158, 233, 0, 1);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
