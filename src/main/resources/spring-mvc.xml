@@ -65,7 +65,7 @@
 					<entry key="locale" value="${locale}" />
 					<!-- 解析XML配置文件 --> 
 					<entry key="setting" value="#{T(com.common.oa.utils.SettingUtils).get()}" />
-					<entry key="message" value-ref="messageMethod" />
+					<entry key="msg" value-ref="messageMethod" />
 				</map>
 		   </property>
 	   </bean>

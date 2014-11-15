@@ -9,10 +9,10 @@ import java.util.List;
  * Created by Administrator on 2014/11/10.
  */
 @Entity
-@Table(name = "t_personal_info")
-public class PersonalInfoEntity extends BaseEntity{
+@Table(name = "t_personal")
+public class PersonalEntity extends BaseEntity{
 
-    enum Marriage{UNMARRIED,MARRIED,REMARRIAGE,DIVORCE,WIDOWED,SECRET}//未婚,已婚,再婚,离异,丧偶,保密
+    public enum Marriage{UNMARRIED,MARRIED,REMARRIAGE,DIVORCE,WIDOWED,SECRET}//未婚,已婚,再婚,离异,丧偶,保密
 
     private String nativePlace;//籍贯
     private String beforeName;//曾用名

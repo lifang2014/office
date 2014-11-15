@@ -48,10 +48,10 @@
 	<section id="main" class="column" style="width:100%;min-width:980px;">
 		<article class="module width_full">
 			<header>
-				<h3 class="tabs_involved">${message("menu.title.list")}</h3>
+				<h3 class="tabs_involved">${msg("menu.title.list")}</h3>
 				<ul class="tabs">
-					<li><a href="#tab1">1、${message("menu.title.list")}</a></li>
-					<li><a href="#tab2">2、${message("menu.title.add")}</a></li>
+					<li><a href="#tab1">1、${msg("menu.title.list")}</a></li>
+					<li><a href="#tab2">2、${msg("menu.title.add")}</a></li>
 				</ul>
 			</header>
 			<div class="tab_container">
@@ -62,11 +62,11 @@
 						<thead> 
 							<tr> 
 								<th></th> 
-								<th>${message("menu.title.name")}</th> 
-								<th>${message("menu.small.title.path")}</th>
-								<th>${message("menu.title.status")}</th> 
-								<th>${message("common.create.date")}</th> 
-								<th>${message("common.opeator")}</th> 
+								<th>${msg("menu.title.name")}</th>
+								<th>${msg("menu.small.title.path")}</th>
+								<th>${msg("menu.title.status")}</th>
+								<th>${msg("common.create.date")}</th>
+								<th>${msg("common.opeator")}</th>
 							</tr> 
 						</thead> 
 						<tbody> 
@@ -126,29 +126,29 @@
 					<!-- 菜单分类  -->
 					<article class="module width_quarter">
 				       <header>
-				    		<h3 class="tabs_involved">${message("menu.title.classification")}</h3>
+				    		<h3 class="tabs_involved">${msg("menu.title.classification")}</h3>
 				       </header>
 				       <table class="tablesorter vote_list" cellspacing="0">
 				           <tbody id="vote_list">
 				            	<tr>
-					            	<td>${message("menu.title.name")}</td>
+					            	<td>${msg("menu.title.name")}</td>
 					            	<td>
-					            		<input type="text" placeholder="${message("menu.tip.input.name")}" name="menu_name" id="menu_name">
+					            		<input type="text" placeholder="${msg("menu.tip.input.name")}" name="menu_name" id="menu_name">
 					            		<input type="hidden" value="" id="menu_id"/>
 					            	</td>
 				            	</tr>
 				            	<tr>
-				            		<td>${message("menu.title.rank")}</td>
+				            		<td>${msg("menu.title.rank")}</td>
 				            		<td><input type="text" placeholder="0" name="menu_rank" id="menu_rank"></td>
 				            	</tr>
 				            	<tr>
-				            		<td>${message("menu.title.status")}</td>
+				            		<td>${msg("menu.title.status")}</td>
 				            		<td>
 				            			<input type="radio" name="menu_system" value="true" id="menu_system_yes">
-				            			<label for="menu_system_yes">${message("common.status.enable")}</label>
+				            			<label for="menu_system_yes">${msg("common.status.enable")}</label>
 				            			&nbsp;&nbsp;
 				            			<input type="radio" name="menu_system" value="false" id="menu_system_no" checked>
-				            			<label for="menu_system_no">${message("common.status.disable")}</label>
+				            			<label for="menu_system_no">${msg("common.status.disable")}</label>
 				            		</td>
 				            	</tr>
 				            	<tr>
@@ -162,7 +162,7 @@
 					<!-- 子菜单 -->
 					<article class="module width_3_quarter">
 						<header>
-							<h3 id="vote_title" class="tabs_involved">${message("menu.small.title.add")}</h3>
+							<h3 id="vote_title" class="tabs_involved">${msg("menu.small.title.add")}</h3>
 						</header>
 						<div style="overflow-y: scroll;max-height: 330px;">
 							<table class="tablesorter vote_list" id="tb_small_menu" cellspacing="0">
@@ -171,27 +171,27 @@
 					           			<td class="vote_list_td">
 					           			
 					           				<div style="min-width:450px;height:30px;line-height:30px;">
-					           					<span class="td_span">${message("menu.title.name")}</span>
+					           					<span class="td_span">${msg("menu.title.name")}</span>
 					           					<input type="text" placeholder="" name="smallmenu_name" id="smallmenu_name"/>
 					           					<input type="hidden" id="submenu_id"/>
 					           				</div>
 					           				
 					           				<div style="min-width:450px;height:30px;line-height:30px;">
-					           					<span class="td_span">${message("menu.small.title.path")}</span>
+					           					<span class="td_span">${msg("menu.small.title.path")}</span>
 					           					<input type="text" placeholder="" name="smallmenu_path" id="smallmenu_path"/>
 					           					
-					           					<span class="td_span" style="margin-left:25px;">${message("menu.title.status")}</span>
+					           					<span class="td_span" style="margin-left:25px;">${msg("menu.title.status")}</span>
 				           						<input type="radio" name="smallmenu_system_1000" value="true" id="smallmenu_system_yes_1000">
-				            					<label for="smallmenu_system_yes_1000">${message("common.status.enable")}</label>
+				            					<label for="smallmenu_system_yes_1000">${msg("common.status.enable")}</label>
 				            					&nbsp;&nbsp;
 				            					<input type="radio" name="smallmenu_system_1000" value="false" id="smallmenu_system_no_1000" checked>
-				            					<label for="smallmenu_system_no_1000">${message("common.status.disable")}</label>
+				            					<label for="smallmenu_system_no_1000">${msg("common.status.disable")}</label>
 				            					
 				            					<div class="vote_list_td_div">
-							            			<input type="image" id="list_icon_add" title="${message("common.title.add")}"  class="icon" src="${base}/resources/common/images/icon/ico_add.gif">
-							            			<input type="image" id="list_icon_edit" title="${message("common.title.edit")}" class="icon" src="${base}/resources/common/images/icon/ico_edit.png">
-							            			<input type="image" id="list_icon_del" title="${message("common.title.delete")}" class="icon" src="${base}/resources/common/images/icon/ico_delete.png">
-							            			<input type="image" id="list_icon_save" title="${message("common.title.save")}" class="icon" src="${base}/resources/common/images/icon/ico_save.png">
+							            			<input type="image" id="list_icon_add" title="${msg("common.title.add")}"  class="icon" src="${base}/resources/common/images/icon/ico_add.gif">
+							            			<input type="image" id="list_icon_edit" title="${msg("common.title.edit")}" class="icon" src="${base}/resources/common/images/icon/ico_edit.png">
+							            			<input type="image" id="list_icon_del" title="${msg("common.title.delete")}" class="icon" src="${base}/resources/common/images/icon/ico_delete.png">
+							            			<input type="image" id="list_icon_save" title="${msg("common.title.save")}" class="icon" src="${base}/resources/common/images/icon/ico_save.png">
 					           					<div>
 					           				</div>
 					           			</td>

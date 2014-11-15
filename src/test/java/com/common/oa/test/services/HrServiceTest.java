@@ -39,6 +39,8 @@ public class HrServiceTest extends BaseTest{
     private PositionService positionService;
     @Autowired
     private JobService jobService;
+    @Autowired
+    private PersonalService personalService;
 
     public HrServiceTest() {
     }
@@ -120,24 +122,36 @@ public class HrServiceTest extends BaseTest{
      * 保存用户个人信息
      */
     @Test
-    public void testDeletePersonalInfo(){
-        PersonalInfoEntity personalInfo = new PersonalInfoEntity();
-        CompanyEntity company = companyService.getCompanyByNo("CP1000");
-        Assert.assertNotNull(company);
-        personalInfo.setCompanyId(company.getId());
-        personalInfo.setBeforeName("李四");
-        personalInfo.setHomeAddress("江西南昌");
-//        personalInfo.setContacts();
-//        personalInfo.setFamilys();
-        personalInfo.setHeight(170F);
-        personalInfo.setWeight(56F);
-//        personalInfo.setEmployee();
-        personalInfo.setIdCard("72472942432424234676");
-        personalInfo.setIdCardValid(new Date());
-        personalInfo.setPhyle("汉族");
-//        personalInfo.setMarriage(PersonalInfoEntity.Marriage.UNMARRIED);
-        personalInfo.setPassport("345665755644");
-        personalInfo.setPassportValid(new Date());
+    public void testSavePersonal(){
+        List<EmployeeEntity> lstEmployees = employeeService.findAll();
+        for(EmployeeEntity employee : lstEmployees) {
+            PersonalEntity personal = new PersonalEntity();
+            CompanyEntity company = companyService.getCompanyByNo("CP1000");
+            Assert.assertNotNull(company);
+            personal.setCompanyId(company.getId());
+            personal.setBeforeName("李四");
+            personal.setHomeAddress("江西南昌");
+//        personal.setContacts();
+//        personal.setFamilys();
+            personal.setHeight(170F);
+            personal.setWeight(56F);
+            personal.setEmployee(employee);
+            personal.setIdCard("72472942432424234676");
+            personal.setIdCardValid(new Date());
+            personal.setPhyle("汉族");
+            personal.setMarriage(PersonalEntity.Marriage.UNMARRIED);
+            personal.setPassport("345665755644");
+            personal.setPassportValid(new Date());
+            personalService.persist(personal);
+        }
+    }
 
+    @Test
+    public void testDeletePersonal(){
+        List<PersonalEntity> lstPersonals = personalService.findAll();
+        for(PersonalEntity personal : lstPersonals){
+            personalService.delete(personal.getId());
+        }
+//        personalService.delete(lstPersonals);
     }
 }

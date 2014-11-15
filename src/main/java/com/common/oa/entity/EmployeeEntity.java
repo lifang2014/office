@@ -28,7 +28,7 @@ public class EmployeeEntity extends BaseEntity {
     private Politacal politacal;//政治面貌
     private String address;//工作地点
     private EmployeeTypeEntity employeeType;//员工状态
-    private PersonalInfoEntity personalInfo;//个人信息
+    private PersonalEntity personalInfo;//个人信息
     private OrganizationEntity organization;
     private PositionEntity position;//岗位
     private JobEntity job;//职务
@@ -165,12 +165,12 @@ public class EmployeeEntity extends BaseEntity {
     }
 
     @OneToOne
-    @JoinColumn(name = "personalInfoId")
-    public PersonalInfoEntity getPersonalInfo() {
+    @JoinColumn(name = "personalId")
+    public PersonalEntity getPersonalInfo() {
         return personalInfo;
     }
 
-    public void setPersonalInfo(PersonalInfoEntity personalInfo) {
+    public void setPersonalInfo(PersonalEntity personalInfo) {
         this.personalInfo = personalInfo;
     }
 

@@ -47,9 +47,9 @@
 	<section id="main" class="column" style="width:100%;min-width:999px;">
 		<article class="module width_full">
 			<header>
-				<h3 class="tabs_involved">${message("menu.title.edit")}</h3>
+				<h3 class="tabs_involved">${msg("menu.title.edit")}</h3>
 				<ul class="tabs">
-					<li><a href="${base}/admin/menu/build.html">1、${message("common.title.back")}</a></li>
+					<li><a href="${base}/admin/menu/build.html">1、${msg("common.title.back")}</a></li>
 				</ul>
 			</header>
 			<div class="tab_container">
@@ -58,29 +58,29 @@
 				<!-- 菜单分类  -->
 				<article class="module width_quarter">
 			    	<header>
-			    		<h3 class="tabs_involved">${message("menu.title.classification")}</h3>
+			    		<h3 class="tabs_involved">${msg("menu.title.classification")}</h3>
 			    	</header>
 			        <table class="tablesorter vote_list" cellspacing="0">
 			           <tbody id="vote_list">
 			            	<tr>
-				            	<td>${message("menu.title.name")}</td>
+				            	<td>${msg("menu.title.name")}</td>
 				            	<td>
-				            		<input type="text" placeholder="${message("menu.tip.input.name")}" name="menu_name" id="menu_name" value="${menu.name}">
+				            		<input type="text" placeholder="${msg("menu.tip.input.name")}" name="menu_name" id="menu_name" value="${menu.name}">
 				            		<input type="hidden" value="${menu.id}" id="menu_id"/>
 				            	</td>
 			            	</tr>
 			            	<tr>
-			            		<td>${message("menu.title.rank")}</td>
+			            		<td>${msg("menu.title.rank")}</td>
 			            		<td><input type="text" placeholder="0" name="menu_rank" id="menu_rank" value="${menu.rank}"></td>
 			            	</tr>
 			            	<tr>
-			            		<td>${message("menu.title.status")}</td>
+			            		<td>${msg("menu.title.status")}</td>
 			            		<td>
 			            			<input type="radio" name="menu_status_${menu_id}" value="true" id="menu_enabled_${menu_id}" ${menu.isSystem?string('checked','')}>
-			            			<label for="menu_enabled_${menu_id}">${message("common.status.enable")}</label>
+			            			<label for="menu_enabled_${menu_id}">${msg("common.status.enable")}</label>
 			            			&nbsp;&nbsp;
 			            			<input type="radio" name="menu_status_${menu_id}" value="false" id="menu_disabled_${menu_id}" ${menu.isSystem?string('','checked')}>
-			            			<label for="menu_disabled_${menu_id}">${message("common.status.disable")}</label>
+			            			<label for="menu_disabled_${menu_id}">${msg("common.status.disable")}</label>
 			            		</td>
 			            	</tr>
 			            	<tr>
@@ -94,7 +94,7 @@
 				<!-- 子菜单 -->
 				<article class="module width_3_quarter">
 					<header>
-						<h3 id="vote_title" class="tabs_involved">${message("menu.small.title.add")}</h3>
+						<h3 id="vote_title" class="tabs_involved">${msg("menu.small.title.add")}</h3>
 					</header>
 					<div style="overflow-y: scroll;max-height: 330px;">
 						<table class="tablesorter vote_list" id="tb_small_menu" cellspacing="0">
@@ -104,27 +104,27 @@
 				           			<td class="vote_list_td">
 				           			
 				           				<div style="min-width:450px;height:30px;line-height:30px;">
-				           					<span class="td_span">${message("menu.title.name")}</span>
+				           					<span class="td_span">${msg("menu.title.name")}</span>
 				           					<input type="text" placeholder="" name="smallmenu_name" id="smallmenu_name" value="${sm.name}"/>
 				           					<input type="hidden" id="submenu_id" value="${sm.id}"/>
 				           				</div>
 				           				
 				           				<div style="min-width:450px;height:30px;line-height:30px;">
-				           					<span class="td_span">${message("menu.small.title.path")}</span>
+				           					<span class="td_span">${msg("menu.small.title.path")}</span>
 				           					<input type="text" placeholder="" name="smallmenu_path" id="smallmenu_path" value="${sm.path}"/>
 				           					
-				           					<span class="td_span" style="margin-left:25px;">${message("menu.title.status")}</span>
+				           					<span class="td_span" style="margin-left:25px;">${msg("menu.title.status")}</span>
 			           						<input type="radio" checked name="smallmenu_system_${sm.id}" value="true" id="smallmenu_system_yes_${sm.id}">
-			            					<label for="smallmenu_system_yes_${sm.id}">${message("common.status.enable")}</label>
+			            					<label for="smallmenu_system_yes_${sm.id}">${msg("common.status.enable")}</label>
 			            					&nbsp;&nbsp;
 			            					<input type="radio" name="smallmenu_system_${sm.id}" value="false" id="smallmenu_system_no_${sm.id}">
-			            					<label for="smallmenu_system_no_${sm.id}">${message("common.status.disable")}</label>
+			            					<label for="smallmenu_system_no_${sm.id}">${msg("common.status.disable")}</label>
 			            					
 			            					<div class="vote_list_td_div">
-						            			<input type="image" id="edit_icon_add" title="${message("common.title.add")}"  class="icon" src="${base}/resources/common/images/icon/ico_add.gif">
-						            			<input type="image" id="edit_icon_edit" title="${message("common.title.edit")}" class="icon" src="${base}/resources/common/images/icon/ico_edit.png">
-						            			<input type="image" id="edit_icon_del" title="${message("common.title.delete")}" class="icon" src="${base}/resources/common/images/icon/ico_delete.png">
-						            			<input type="image" id="edit_icon_save" title="${message("common.title.save")}" class="icon" src="${base}/resources/common/images/icon/ico_save.png">
+						            			<input type="image" id="edit_icon_add" title="${msg("common.title.add")}"  class="icon" src="${base}/resources/common/images/icon/ico_add.gif">
+						            			<input type="image" id="edit_icon_edit" title="${msg("common.title.edit")}" class="icon" src="${base}/resources/common/images/icon/ico_edit.png">
+						            			<input type="image" id="edit_icon_del" title="${msg("common.title.delete")}" class="icon" src="${base}/resources/common/images/icon/ico_delete.png">
+						            			<input type="image" id="edit_icon_save" title="${msg("common.title.save")}" class="icon" src="${base}/resources/common/images/icon/ico_save.png">
 				           					<div>
 				           				</div>
 				           			</td>
