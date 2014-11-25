@@ -1,7 +1,10 @@
 package com.common.oa.controller;
 
+import org.apache.shiro.SecurityUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.servlet.http.HttpSession;
 
 /**
  * <ol>
@@ -18,7 +21,7 @@ public class HrController {
     private static final String M_PATH_ACTION = "/admin/hr/action";
 
     @RequestMapping(value = "/build")
-    public String build(){
+    public String build(HttpSession session){
         return M_PATH_BUILD;
     }
 

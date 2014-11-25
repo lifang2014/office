@@ -7,7 +7,6 @@
 	<link rel="stylesheet" type="text/css" href="${base}/resources/back/css/layout.css"/>
     <link rel="stylesheet" type="text/css" href="${base}/resources/back/css/jquery-ui-1.10.4.min.css"/>
     <link rel="stylesheet" type="text/css" href="${base}/resources/back/css/custom/hr-all.css"/>
-	<#--<link rel="stylesheet" type="text/css" href="${base}/resources/common/tab/css/tab_select_style.css"/>-->
 	<link rel="stylesheet" type="text/css" href="${base}/resources/common/tab/css/tab_styles.css"/>
 
 	<script type="text/javascript" src="${base}/resources/back/js/jquery-1.11.0.js"></script>
@@ -17,8 +16,6 @@
     <script type="text/javascript" src="${base}/resources/back/js/jquery-ui-1.10.4.min.js"></script>
     <script type="text/javascript" src="${base}/resources/back/js/jquery.ui.datepicker-zh-CN.js"></script>
     <script type="text/javascript" src="${base}/resources/common/layer/layer.js"></script>
-	<#--<script type="text/javascript" src="${base}/resources/common/tab/js/tab_select_left_script.js"></script>-->
-	<#--<script type="text/javascript" src="${base}/resources/common/tab/js/tab_select_right_script.js"></script>-->
 	<script type="text/javascript" src="${base}/resources/common/tab/js/tab_scripts.js"></script>
 
 	<script type="text/javascript">
@@ -53,9 +50,6 @@
 		<article class="module width_full">
 			<header>
 				<h3 class="tabs_involved">${msg("hr.title.name")}</h3>
-				<#--<ul class="tabs">-->
-					<#--<li><a href="#tab1">1、${msg("menu.title.add")}</a></li>-->
-				<#--</ul>-->
 			</header>
 			<div class="tab_container">
 
@@ -70,9 +64,8 @@
                     <div class="container_12" style="float: right;">
                         <ul class="tabs_12">
                             <li><a href="#tab1_12">${msg("hr.title.msg")}</a></li>
-                            <li><a href="#tab2_12">${msg("hr.title.personal")}</a></li>
-                            <li><a href="#tab3_12">${msg("hr.title.archives")}</a></li>
-                            <li><a href="#tab4_12">${msg("hr.title.salary")}</a></li>
+                            <li><a href="#tab2_12">${msg("hr.title.archives")}</a></li>
+                            <li><a href="#tab3_12">${msg("hr.title.salary")}</a></li>
                         </ul>
                         <div class="tab_container_12">
                             <div id="tab1_12" class="tab_content_12">
@@ -173,9 +166,6 @@
 								<!-- 个人信息 END -->
                             </div>
                             <div id="tab2_12" class="tab_content_12">
-                                <h2>表单</h2>
-                            </div>
-                            <div id="tab3_12" class="tab_content_12">
                                 <!-- 档案信息 START -->
                                 <table class="tablesorter vote_list" id="tb_hr" cellspacing="0">
                                     <tbody id="vote_list">
@@ -306,62 +296,116 @@
                                         <td colspan="3">$XXXXXXXXX</td>
                                     </tr>
 
+                                    <tr>
+                                        <td colspan="10">${msg("hr.title.certificate")}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td>${msg("")}</td>
+                                        <td>${msg("")}</td>
+                                        <td>${msg("")}</td>
+                                        <td>${msg("")}</td>
+                                    </tr>
                                     </tbody>
                                 </table>
                                 <!-- 档案信息 END -->
                             </div>
-                            <div id="tab4_12" class="tab_content_12">
-                                <h2>表单</h2>
+
+                            <!-- 薪酬福利 START -->
+                            <div id="tab3_12" class="tab_content_12">
+                                <table class="tablesorter vote_list" id="tb_hr" cellspacing="0">
+                                    <tbody id="vote_list">
+                                        <tr>
+                                            <td colspan="10">${msg("hr.title.salary.contract")}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td>${msg("common.hr.field.contract.entry.date")}</td>
+                                            <td>2010/10/10</td>
+                                            <td>${msg("common.hr.field.contract.positive.date")}</td>
+                                            <td>2010/12/01</td>
+                                            <td>${msg("common.hr.field.contract.try.num")}</td>
+                                            <td>6个月</td>
+                                            <td>${msg("common.hr.field.contract.emp.status")}</td>
+                                            <td>正式</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td>${msg("common.hr.field.contract.no")}</td>
+                                            <td>AJ103234</td>
+                                            <td>${msg("common.hr.field.contract.type")}</td>
+                                            <td>劳务合同</td>
+                                            <td>${msg("common.hr.field.contract.sign")}</td>
+                                            <td>2012-10-10</td>
+                                            <td>${msg("common.hr.field.contract.status")}</td>
+                                            <td>生效</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td>${msg("common.hr.field.contract.effective")}</td>
+                                            <td>2012-12-12</td>
+                                            <td>${msg("common.hr.field.contract.end")}</td>
+                                            <td>2014-12-12</td>
+                                            <td colspan="5"></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td colspan="10">${msg("hr.title.salary.info")}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td>${msg("common.hr.field.salary.base")}</td>
+                                            <td>3000</td>
+                                            <td>${msg("common.hr.field.salary.position")}</td>
+                                            <td>2000</td>
+                                            <td>${msg("common.hr.field.salary.ach")}</td>
+                                            <td>1000</td>
+                                            <td>${msg("common.hr.field.salary.edu.allow")}</td>
+                                            <td>1000</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td>${msg("common.hr.field.salary.positon.allow")}</td>
+                                            <td>0</td>
+                                            <td>${msg("common.hr.field.salary.job.allow")}</td>
+                                            <td>0</td>
+                                            <td>${msg("common.hr.field.salary.age")}</td>
+                                            <td>0</td>
+                                            <td>${msg("common.hr.field.salary.position.num")}</td>
+                                            <td>0</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td colspan="10">${msg("hr.title.social.info")}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td>${msg("common.hr.field.social.no")}</td>
+                                            <td>AJ892843</td>
+                                            <td>${msg("common.hr.field.social.type")}</td>
+                                            <td>XXXX</td>
+                                            <td>${msg("common.hr.field.social.address")}</td>
+                                            <td>上海</td>
+                                            <td>${msg("common.hr.field.social.num")}</td>
+                                            <td>0</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td>${msg("common.hr.field.social.fund.num")}</td>
+                                            <td>0</td>
+                                            <td colspan="7">&nbsp;</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
+                            <!-- 薪酬福利 END -->
+
 						</div>
 					</div>
-
-					<#--<div id="tab_select_right" class="tab_select" style="margin-top:-5px;float:left;width: 100%;min-width: 830px;">-->
-                        <#--<div class="tabList">-->
-                            <#--<ul class="clearfix">-->
-                                <#--<li class="cur">${msg("hr.title.msg")}</li>-->
-                                <#--<li>${msg("hr.title.personal")}</li>-->
-                                <#--<li>${msg("hr.title.archives")}</li>-->
-                                <#--<li>${msg("hr.title.salary")}</li>-->
-                            <#--</ul>-->
-                        <#--</div>-->
-                        <#--<div class="tabCon" style="width: 100%;height: 360px;min-width: 830px;">-->
-                            <#--<div class="cur">断桥残雪、千百度、幻听、想象之中</div>-->
-                            <#--<div>红尘客栈、牛仔很忙、给我一首歌的时间、听妈妈的话</div>-->
-                            <#--<div>被风吹过的夏天、江南、一千年以后</div>-->
-                            <#--<div>十年、K歌之王、浮夸</div>-->
-                        <#--</div>-->
-                    <#--</div>-->
-
-					<!-- 组织架构  -->
-					<!--
-					<article class="module width_quarter">
-				       <header>
-				    		<h3 class="tabs_involved">${msg("hr.title.org.structure")}</h3>
-				       </header>
-				       <table class="tablesorter vote_list" cellspacing="0">
-				           <tbody id="vote_list">
-				           </tbody>
-				       </table>
-				    </article>
-					-->
-					<!-- 基本信息 -->
-					<!--
-					<article class="module width_3_quarter">
-						<header>
-							<h3 id="vote_title" class="tabs_involved">${msg("hr.title.name")}</h3>
-							<ul class="tabs">
-								<li><a href="#tab_msg1">1、${msg("hr.title.msg")}</a> </li>
-                                <li><a href="#tab_msg2">2、${msg("hr.title.personal")}</a> </li>
-                                <li><a href="#tab_msg3">3、${msg("hr.title.archives")}</a> </li>
-								<li><a href="#tab_msg4">4、${msg("hr.title.salary")}</a> </li>
-							</ul>
-						</header>
-						<div style="overflow-y: scroll;max-height: 330px;">
-
-				        </div>
-				    </article>
-					-->
 				</div>
 		   		<!--活动设置选项卡结束-->
 			</div><!-- end of .tab_container -->
