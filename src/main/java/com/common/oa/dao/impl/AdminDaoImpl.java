@@ -26,7 +26,7 @@ public class AdminDaoImpl extends BaseDaoImpl<AdminEntity, Long> implements Admi
 			
 			EntityType<AdminEntity> entityType = entityManager.getMetamodel().entity(AdminEntity.class);
 			
-			if(entityType.getSingularAttribute("username")==null) return null;
+			if(entityType.getSingularAttribute("username") == null) return null;
 			
 			Predicate predicate = queryBinder.equal(root.get(entityType.getSingularAttribute("username",String.class)), username);
 			

@@ -15,7 +15,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration(locations = {"classpath:spring-db.xml"})
 public class BaseTest {
 
-    private static Logger logger = LoggerFactory.getLogger(BaseTest.class);
+    public static Logger logger = LoggerFactory.getLogger(BaseTest.class);
 
     private static long startTime = 0L;
     private static long endTime = 0L;
@@ -27,6 +27,8 @@ public class BaseTest {
     @AfterClass
     public static void afterClass(){
         endTime = System.currentTimeMillis();
-        logger.info("The runing time : {}ms",(startTime - endTime));
+        logger.info("=============================================");
+        logger.info("The runing time : {}ms",(endTime - startTime));
+        logger.info("=============================================");
     }
 }

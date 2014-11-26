@@ -3,7 +3,6 @@
      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	 xmlns:p="http://www.springframework.org/schema/p"
      xmlns:context="http://www.springframework.org/schema/context"
-     xmlns:aop="http://www.springframework.org/schema/aop"
      xmlns:tx="http://www.springframework.org/schema/tx"
      xsi:schemaLocation="http://www.springframework.org/schema/beans
          http://www.springframework.org/schema/beans/spring-beans.xsd
@@ -14,8 +13,10 @@
          
         <context:property-placeholder location="classpath:common.properties"/>
 
-		<bean class="com.common.oa.method.EncryptPropertyConfigurer"
-			  p:location="classpath:jdbc.property" p:fileEncoding="utf-8"></bean>
+		<bean class="com.common.oa.method.EncryptPropertyConfigurer">
+			<property name="location" value="classpath:jdbc.properties"/>
+			<property name="fileEncoding" value="utf-8"/>
+		</bean>
        
         <context:component-scan base-package="com.common" use-default-filters="true">
        		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
