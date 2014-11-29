@@ -4,7 +4,10 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
 
+import com.common.oa.entity.EmployeeEntity;
+import com.common.oa.services.IdentityService;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,7 +19,7 @@ import com.common.oa.utils.Page;
 public class BaseServiceImpl<Entity, ID extends Serializable> implements BaseService<Entity, ID> {
 
 	private BaseDao<Entity,ID> baseDao;
-	
+
 	public void setBaseDao(BaseDao<Entity,ID> baseDao){
 		this.baseDao = baseDao;
 	}
@@ -89,7 +92,9 @@ public class BaseServiceImpl<Entity, ID extends Serializable> implements BaseSer
 
 	@Transactional
 	public void persist(Entity entity) {
-		if(entity!=null) this.baseDao.persist(entity);
+		if(entity!=null) {
+			this.baseDao.persist(entity);
+		}
 	}
 
 	@Transactional

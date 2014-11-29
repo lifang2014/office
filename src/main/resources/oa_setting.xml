@@ -17,7 +17,7 @@
 	 	<map key="admin" value="123456,CP1000"></map>
 	 	<map key="jerry" value="123456,CP1000"></map>
 	</setting>
-	 
+
 	<setting name="menu" enabled="true">
 		<map key="系统管理" value="菜单管理, /admin/menu/build.html"></map>
 		<map key="系统管理" value="系统设置, /admin/system/build.html"></map>
@@ -29,6 +29,16 @@
 		<map key="人事信息" value="岗位信息, /admin/hr/position/build.html"></map>
 		<map key="人事信息" value="职务信息, /admin/hr/job/build.html"></map>
 		<map key="人事信息" value="人事活动, /admin/hr/action.html"></map>
+	</setting>
+
+	<setting name="employeeType" enabled="true">
+		<map key="试用期" value="1"></map>
+		<map key="在职" value="2"></map>
+		<map key="离职" value="3"></map>
+		<map key="休假" value="4"></map>
+		<map key="停职" value="5"></map>
+		<map key="退休" value="6"></map>
+		<map key="自离" value="7"></map>
 	</setting>
 
 	<setting name="subfix" enabled="true" value=".html"></setting>

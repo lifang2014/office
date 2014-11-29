@@ -10,39 +10,32 @@
          http://www.springframework.org/schema/tx/spring-tx.xsd
          http://www.springframework.org/schema/context
          http://www.springframework.org/schema/context/spring-context.xsd">
-         
-        <context:property-placeholder location="classpath:common.properties"/>
 
-		<bean class="com.common.oa.method.EncryptPropertyConfigurer">
-			<property name="location" value="classpath:jdbc.properties"/>
-			<property name="fileEncoding" value="utf-8"/>
-		</bean>
-       
         <context:component-scan base-package="com.common" use-default-filters="true">
        		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
         </context:component-scan>
 
+		<context:property-placeholder location="classpath:common.properties" file-encoding="utf-8"/>
+
 	   	<!-- C3P0连接池 -->
-		<!--
-		<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
-			<property name="driverClass" value="${jdbc.driver}" />
-			<property name="jdbcUrl" value="${jdbc.url}" />
-			<property name="user" value="${jdbc.username}" />
-			<property name="password" value="${jdbc.password}" />
-			<property name="initialPoolSize" value="${connection_pools.initial_pool_size}" />
-			<property name="minPoolSize" value="${connection_pools.min_pool_size}" />
-			<property name="maxPoolSize" value="${connection_pools.max_pool_size}" />
-			<property name="maxIdleTime" value="${connection_pools.max_idle_time}" />
-			<property name="acquireIncrement" value="${connection_pools.acquire_increment}" />
-			<property name="checkoutTimeout" value="${connection_pools.checkout_timeout}" />
-		</bean>
-		-->
+		<!--<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">-->
+			<!--<property name="driverClass" value="${jdbc.driver}" />-->
+			<!--<property name="jdbcUrl" value="${jdbc.url}" />-->
+			<!--<property name="user" value="${jdbc.username}" />-->
+			<!--<property name="password" value="${jdbc.password}" />-->
+			<!--<property name="initialPoolSize" value="${connection_pools.initial_pool_size}" />-->
+			<!--<property name="minPoolSize" value="${connection_pools.min_pool_size}" />-->
+			<!--<property name="maxPoolSize" value="${connection_pools.max_pool_size}" />-->
+			<!--<property name="maxIdleTime" value="${connection_pools.max_idle_time}" />-->
+			<!--<property name="acquireIncrement" value="${connection_pools.acquire_increment}" />-->
+			<!--<property name="checkoutTimeout" value="${connection_pools.checkout_timeout}" />-->
+		<!--</bean>-->
 
 		<!-- Alibaba DruId连接池 -->
 		<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
-			<property name="url" value="${jdbc.url}" />
-			<property name="username" value="${jdbc.username}" />
-			<property name="password" value="${jdbc.password}" />
+			<property name="url" value="${jdbc.url}"/>
+			<property name="username" value="${jdbc.username}"/>
+			<property name="password" value="${jdbc.password}"/>
 
 			<!-- 配置初始化大小、最小、最大 -->
 			<property name="initialSize" value="1" />

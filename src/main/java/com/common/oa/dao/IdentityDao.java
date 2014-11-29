@@ -7,6 +7,6 @@ import com.common.oa.entity.IdentityEntity;
  */
 public interface IdentityDao extends BaseDao<IdentityEntity, Long>{
 
-    public IdentityEntity findIdentityEntity(String companyId, String clazz);
+    public IdentityEntity findIdentityEntity(long companyId, String clazz);
 
 }

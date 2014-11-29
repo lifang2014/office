@@ -82,7 +82,7 @@ public class DESUtils {
      * @param args
      */
     public static void main(String[] args){
-        String[] decryptStr = {"root","123456","jdbc:mysql://127.0.0.1/db_office?useUnicode=true&characterEncoding=utf-8"};
+        String[] decryptStr = {"root","admin","jdbc:mysql://127.0.0.1/db_office?useUnicode=true&characterEncoding=utf-8"};
         String[] encryptStr = new String[3];
         for(int i = 0; i < decryptStr.length; i++){
             encryptStr[i] = getEncryptBase64String(decryptStr[i]);

@@ -17,6 +17,7 @@
     <script type="text/javascript" src="${base}/resources/back/js/jquery.ui.datepicker-zh-CN.js"></script>
     <script type="text/javascript" src="${base}/resources/common/layer/layer.js"></script>
 	<script type="text/javascript" src="${base}/resources/common/tab/js/tab_scripts.js"></script>
+    <script type="text/javascript" src="${base}/resources/back/js/custom/hr-all.js"></script>
 
 	<script type="text/javascript">
 		$(document).ready(function(e) {
@@ -79,68 +80,91 @@
                                     </tr>
                                     <tr>
                                         <td class="td_title">${msg("common.field.name")}</td>
-                                        <td class="td_content">李四</td>
+                                        <td class="td_content">
+                                            ${employee.name}
+                                        </td>
                                         <td class="td_title">${msg("common.field.before.name")}</td>
-                                        <td class="td_content">- -</td>
+                                        <td class="td_content">${employee.personal.alias}</td>
                                     </tr>
                                     <tr>
                                         <td class="td_title">${msg("common.field.no")}</td>
-                                        <td class="td_content">AJ10001</td>
+                                        <td class="td_content">${employee.employeeNo}</td>
                                         <td class="td_title">${msg("common.field.sex")}</td>
-                                        <td class="td_content">男</td>
+                                        <td class="td_content">${employee.sexText}</td>
                                     </tr>
                                     <tr>
                                         <td class="td_title">${msg("common.field.birthday")}</td>
-                                        <td class="td_content">1991-10-01</td>
+                                        <td class="td_content">${employee.birthday}</td>
                                         <td class="td_title">${msg("common.field.age")}</td>
-                                        <td class="td_content">23</td>
+                                        <td class="td_content">20</td>
                                     </tr>
                                     <tr>
                                         <td class="td_title">${msg("common.field.tel")}</td>
-                                        <td class="td_content">156 1875 7547</td>
+                                        <td class="td_content">${employee.tel}</td>
                                         <td class="td_title">${msg("common.field.email")}</td>
-                                        <td class="td_content">jerry.2012@qq.com</td>
+                                        <td class="td_content">${employee.email}</td>
                                     </tr>
                                     <tr>
                                         <td>&nbsp;</td>
                                         <td class="td_title">${msg("common.field.qq")}</td>
-                                        <td class="td_content">297177122</td>
+                                        <td class="td_content">${employee.personal.qq}</td>
                                         <td class="td_title">${msg("common.field.msn")}</td>
-                                        <td class="td_content">297427434</td>
+                                        <td class="td_content">${employee.personal.msn}</td>
                                     </tr>
                                     <tr>
                                         <td>&nbsp;</td>
                                         <td class="td_title">${msg("common.field.phyle")}</td>
-                                        <td class="td_content">汉族</td>
+                                        <td class="td_content">${employee.personal.phyle}</td>
                                         <td class="td_title">${msg("common.field.politacal")}</td>
-                                        <td class="td_content">群众</td>
+                                        <td class="td_content">${employee.personal.politacalText}</td>
                                     </tr>
                                     <tr>
                                         <td>&nbsp;</td>
                                         <td class="td_title">${msg("common.field.native")}</td>
-                                        <td class="td_content">上海闵行</td>
+                                        <td class="td_content">${employee.personal.nativePlace}</td>
                                         <td class="td_title">${msg("common.field.marriage")}</td>
-                                        <td class="td_content">未婚</td>
+                                        <td class="td_content">${employee.personal.marriageText}</td>
                                     </tr>
                                     <tr>
                                         <td>&nbsp;</td>
                                         <td class="td_title">${msg("common.field.address")}</td>
-                                        <td class="td_content" colspan="3">江西省赣州市潭口镇XXX大道XXX小区XXX栋XXX室</td>
+                                        <td class="td_content" colspan="3">${employee.personal.homeAddress}</td>
                                     </tr>
+
                                     <tr>
-                                        <td colspan="5" class="td_row_title">${msg("common.field.emp.status")}</td>
+                                        <td colspan="4" class="td_row_title">
+                                            ${msg("common.field.emp.status")}
+                                        </td>
+                                        <td style="padding-right: 20px;">
+                                            <img class="td_icon" src="${base}/resources/common/images/icon/icon_cancel.png" id="hr_cancel_icon">
+                                            <img class="td_icon" src="${base}/resources/common/images/icon/ico_edit.png" id="hr_edit_icon">
+                                            <img class="td_icon" src="${base}/resources/common/images/icon/icon_save.png" id="hr_save_icon">
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>&nbsp;</td>
                                         <td class="td_title">${msg("common.field.emp.type")}</td>
-                                        <td class="td_content">正式</td>
+                                        <td class="td_content">
+                                            <input id="hr_input_emp_type" class="input_edit_emp_status" value="合同签约" readonly="true"/>
+                                        </td>
                                         <td class="td_title">${msg("common.field.emp.status")}</td>
-                                        <td class="td_content">在职</td>
+                                        <td class="td_content">
+                                            <select class="td_select" id="hr_select_emp_type">
+                                                <#list employeeTypes as type>
+                                                    <#if type.name == employee.employeeType.name>
+                                                        <option value="${type.id}" selected="selected">${type.name}</option>
+                                                    <#else>
+                                                        <option value="${type.id}">${type.name}</option>
+                                                    </#if>
+                                                </#list>
+                                            </select>
+                                        </td>
                                     </tr>
+
                                     <tr>
                                         <td>&nbsp;</td>
                                         <td class="td_title">${msg("common.field.start.date")}</td>
-                                        <td class="td_content">2014-06-28</td>
+                                        <td class="td_content">${employee.startDate}</td>
                                         <td>&nbsp;</td>
                                         <td>&nbsp;</td>
                                     </tr>
@@ -150,9 +174,9 @@
                                     <tr>
                                         <td>&nbsp;</td>
                                         <td class="td_title">${msg("common.field.belong.position")}</td>
-                                        <td class="td_content">研发部</td>
+                                        <td class="td_content">${employee.position.name}</td>
                                         <td class="td_title">${msg("common.field.belong.job")}</td>
-                                        <td class="td_content">研发工程师</td>
+                                        <td class="td_content">${employee.job.name}</td>
                                     </tr>
                                     <tr>
                                         <td>&nbsp;</td>
@@ -301,10 +325,30 @@
                                     </tr>
                                     <tr>
                                         <td>&nbsp;</td>
-                                        <td>${msg("")}</td>
-                                        <td>${msg("")}</td>
-                                        <td>${msg("")}</td>
-                                        <td>${msg("")}</td>
+                                        <td>${msg("common.hr.field.cer.name")}</td>
+                                        <td>${msg("common.hr.field.cer.type")}</td>
+                                        <td>${msg("common.hr.field.cer.no")}</td>
+                                        <td>${msg("common.hr.field.cer.authority")}</td>
+                                        <td>${msg("common.hr.field.cer.auth.date")}</td>
+                                        <td>${msg("common.hr.field.cer.valid")}</td>
+                                        <td>${msg("common.hr.field.cer.annex")}</td>
+                                        <td colspan="2"></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td colspan="10">${msg("hr.title.family")}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td>${msg("common.hr.field.family.name")}</td>
+                                        <td>${msg("common.hr.field.family.relation")}</td>
+                                        <td>${msg("common.hr.field.family.birthday")}</td>
+                                        <td>${msg("common.hr.field.family.edu")}</td>
+                                        <td>${msg("common.hr.field.family.polities")}</td>
+                                        <td>${msg("common.hr.field.family.job")}</td>
+                                        <td>${msg("common.hr.field.family.jobtitle")}</td>
+                                        <td>${msg("common.hr.field.family.tel")}</td>
+                                        <td>&nbsp;</td>
                                     </tr>
                                     </tbody>
                                 </table>

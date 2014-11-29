@@ -95,4 +95,5 @@ public interface BaseDao<Entity,ID extends Serializable> {
      * @return
      */
     public List<Entity> findAllByCompanyId(Long companyId);
+
 }

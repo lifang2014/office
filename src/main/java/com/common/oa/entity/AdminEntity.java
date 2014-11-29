@@ -11,13 +11,15 @@ import javax.persistence.*;
 public class AdminEntity extends BaseEntity{
 
 	private String username;//用户名
-	private String email;//Email
+	private String email;//Email登录
 	private String password;//密码
 	private Boolean isLocked;//是否锁定
 	private Date loginDate;//登录日期
 	private Date lockedDate;//锁定日期
 	private String loginIp;//登录IP
 	private Integer loginFailureCount;//登录失败次数
+
+	private EmployeeEntity employeeEntity;
 
 	@Column(length=16,unique=true)
 	public String getUsername() {
@@ -83,4 +85,13 @@ public class AdminEntity extends BaseEntity{
 		this.loginFailureCount = loginFailureCount;
 	}
 
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "employeeId")
+	public EmployeeEntity getEmployeeEntity() {
+		return employeeEntity;
+	}
+
+	public void setEmployeeEntity(EmployeeEntity employeeEntity) {
+		this.employeeEntity = employeeEntity;
+	}
 }

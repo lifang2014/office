@@ -3,6 +3,8 @@ package com.common.oa.filter;
 import java.util.Date;
 
 
+import com.common.oa.params.Principal;
+import com.common.oa.services.LoginLogService;
 import com.common.oa.utils.CommonUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -27,6 +29,9 @@ public class AuthenticationRealm extends AuthenticatingRealm{
 	
 	@Autowired
 	private AdminService adminService;
+
+	@Autowired
+	private LoginLogService loginLogService;
 	
 	@Override
 	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
@@ -37,9 +42,11 @@ public class AuthenticationRealm extends AuthenticatingRealm{
 		if(StringUtils.isNotBlank(username) && StringUtils.isNotBlank(password)){
 			AdminEntity admin = adminService.findByUsername(username);
 			if(admin==null){
+				loginLogService.saveLoginLog(username, null, ip, 1, null, "未知用户");
 				throw new UnknownAccountException();
 			}
 			if(admin.getIsLocked()){
+				loginLogService.saveLoginLog(username, null, ip, 1, null, "用户已锁定");
 				throw new LockedAccountException();
 			}
 			String md5Hex = CommonUtils.getTime64MD5(password);
@@ -47,16 +54,25 @@ public class AuthenticationRealm extends AuthenticatingRealm{
 				int loginFailureCount = admin.getLoginFailureCount() + 1;
 				admin.setLoginFailureCount(loginFailureCount);
 				adminService.update(admin);
+				loginLogService.saveLoginLog(username, "", ip, 1,"", "密码错误");
 				throw new IncorrectCredentialsException();
 			}
 			admin.setLoginDate(new Date());
 			admin.setLoginIp(ip);
 			admin.setLoginFailureCount(0);
 			adminService.update(admin);
-			logger.info("LOGIN USERNAME:{}",admin.getUsername());
-			return new SimpleAuthenticationInfo(admin, password,getName());
+			logger.info("The currently logged in user : {}",admin.getUsername());
+			loginLogService.saveLoginLog(username, null, ip, 0, null, "成功");
+			return new SimpleAuthenticationInfo(
+					new Principal(admin.getId(), admin.getUsername()),
+					password,
+					getName());
 		}
+		loginLogService.saveLoginLog(username, null, ip, 1, null, "未知用户");
 		throw new UnknownAccountException();
 	}
+
+
+
 
 }

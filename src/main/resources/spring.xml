@@ -22,8 +22,6 @@
 			<property name="keepAliveSeconds" value="${task.keep_alive_seconds}" />
 	   </bean>
        
-       <context:property-placeholder location="classpath:common.properties"/>
-       
        <task:annotation-driven/>
        
        <cache:annotation-driven cache-manager="cacheManager"/>

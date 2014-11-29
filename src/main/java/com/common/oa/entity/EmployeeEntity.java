@@ -13,22 +13,21 @@ import java.util.Date;
 public class EmployeeEntity extends BaseEntity {
 
     public enum Sex{MALE, FEMALE,SECRET} //性别枚举值
-    public enum Politacal{GENERAL,MEMBER,PARTY,NONE,SECRET}//群众,党员,团员,无,保密
 
     private String employeeNo;//员工编号
     private String name;
     private Sex sex;
     private Date birthday;
-    private String password;
-    private boolean isLocked;//是否锁定
 
     private String face;//头像
     private String tel;//电话
     private String email;//邮箱
-    private Politacal politacal;//政治面貌
     private String address;//工作地点
+    private Date startDate;//入职日期
+    private Date tonormalDate;//转正日期
+    private Integer timeLimit;//适用期限
     private EmployeeTypeEntity employeeType;//员工状态
-    private PersonalEntity personalInfo;//个人信息
+    private PersonalEntity personal = new PersonalEntity();//个人信息
     private OrganizationEntity organization;
     private PositionEntity position;//岗位
     private JobEntity job;//职务
@@ -69,23 +68,6 @@ public class EmployeeEntity extends BaseEntity {
 
     public void setBirthday(Date birthday) {
         this.birthday = birthday;
-    }
-
-    @Column(length = 64)
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public boolean isLocked() {
-        return isLocked;
-    }
-
-    public void setLocked(boolean isLocked) {
-        this.isLocked = isLocked;
     }
 
     @ManyToOne
@@ -135,15 +117,6 @@ public class EmployeeEntity extends BaseEntity {
         this.email = email;
     }
 
-    @Enumerated(EnumType.ORDINAL)
-    public Politacal getPolitacal() {
-        return politacal;
-    }
-
-    public void setPolitacal(Politacal politacal) {
-        this.politacal = politacal;
-    }
-
     @Column(length = 120)
     public String getAddress() {
         return address;
@@ -166,12 +139,12 @@ public class EmployeeEntity extends BaseEntity {
 
     @OneToOne
     @JoinColumn(name = "personalId")
-    public PersonalEntity getPersonalInfo() {
-        return personalInfo;
+    public PersonalEntity getPersonal() {
+        return personal;
     }
 
-    public void setPersonalInfo(PersonalEntity personalInfo) {
-        this.personalInfo = personalInfo;
+    public void setPersonal(PersonalEntity personal) {
+        this.personal = personal;
     }
 
     @OneToOne
@@ -183,4 +156,40 @@ public class EmployeeEntity extends BaseEntity {
     public void setOrganization(OrganizationEntity organization) {
         this.organization = organization;
     }
+
+    @Temporal(TemporalType.DATE)
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+    @Temporal(TemporalType.DATE)
+    public Date getTonormalDate() {
+        return tonormalDate;
+    }
+
+    public void setTonormalDate(Date tonormalDate) {
+        this.tonormalDate = tonormalDate;
+    }
+
+    public Integer getTimeLimit() {
+        return timeLimit;
+    }
+
+    public void setTimeLimit(Integer timeLimit) {
+        this.timeLimit = timeLimit;
+    }
+
+    @Transient
+    public String getSexText() {
+        if(Sex.MALE == this.getSex()) {
+            return "男";
+        }else{
+            return "女";
+        }
+    }
+
 }

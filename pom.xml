@@ -168,6 +168,12 @@
       <version>2.6.9</version>
     </dependency>
 
+    <dependency>
+      <groupId>org.activiti</groupId>
+      <artifactId>activiti-engine</artifactId>
+      <version>5.14</version>
+    </dependency>
+
     <!-- 日志相关Jar包 -->
     <dependency>
       <groupId>org.slf4j</groupId>

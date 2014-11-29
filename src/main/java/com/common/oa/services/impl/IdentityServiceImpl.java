@@ -30,8 +30,8 @@ public class IdentityServiceImpl extends BaseServiceImpl<IdentityEntity,Long> im
      * @return
      */
     @Override
-    public String getIdentity(String companyId, Class clazz) {
-        if(!(StringUtils.isNotBlank(companyId) || clazz == null)){
+    public String getIdentity(long companyId, Class clazz) {
+        if(!(StringUtils.isBlank(companyId + "") || clazz == null)){
             IdentityEntity identityEntity = identityDao.findIdentityEntity(companyId, clazz.getName());
             if(identityEntity != null){
                 String key = identityEntity.getKeyword();

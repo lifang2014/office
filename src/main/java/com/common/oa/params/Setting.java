@@ -31,6 +31,8 @@ public class Setting implements Serializable {
 
 	private XMLConfig initSecurity;//初始化密码
 
+	private XMLConfig employeeType;//员工状态
+
 	public XMLConfig getAdmin() {
 		return admin;
 	}
@@ -85,6 +87,14 @@ public class Setting implements Serializable {
 
 	public void setInitSecurity(XMLConfig initSecurity) {
 		this.initSecurity = initSecurity;
+	}
+
+	public XMLConfig getEmployeeType() {
+		return employeeType;
+	}
+
+	public void setEmployeeType(XMLConfig employeeType) {
+		this.employeeType = employeeType;
 	}
 
 	/*private static final long serialVersionUID = -1478999889661796840L;

@@ -15,7 +15,7 @@ import javax.persistence.metamodel.EntityType;
 public class IdentityDaoImpl extends BaseDaoImpl<IdentityEntity,Long> implements IdentityDao{
 
     @Override
-    public IdentityEntity findIdentityEntity(String companyId, String clazz) {
+    public IdentityEntity findIdentityEntity(long companyId, String clazz) {
 
         try {
 

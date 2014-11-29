@@ -17,12 +17,16 @@ import javax.persistence.criteria.Root;
 import javax.persistence.metamodel.EntityType;
 
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.util.Assert;
 
 import com.common.oa.dao.BaseDao;
 import com.common.oa.utils.Page;
 
 public abstract class BaseDaoImpl<Entity,ID extends Serializable> implements BaseDao<Entity, ID> {
+
+	private Logger logger = LoggerFactory.getLogger(BaseDaoImpl.class);
 
 	@PersistenceContext
 	public EntityManager entityManager;
@@ -141,4 +145,5 @@ public abstract class BaseDaoImpl<Entity,ID extends Serializable> implements Bas
 			return entityManager.createQuery(criteriaQuery).getResultList();
 		}
 	}
+
 }

@@ -5,9 +5,9 @@ import java.util.List;
 import java.util.Map;
 
 
-import com.common.oa.entity.CompanyEntity;
+import com.common.oa.entity.*;
 import com.common.oa.exception.InitSystemException;
-import com.common.oa.services.CompanyService;
+import com.common.oa.services.*;
 import com.common.oa.utils.CommonUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.LoggerFactory;
@@ -17,14 +17,8 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
-import com.common.oa.entity.AdminEntity;
-import com.common.oa.entity.MenuEntity;
-import com.common.oa.entity.SubMenuEntity;
 import com.common.oa.params.Setting;
 import com.common.oa.params.XMLConfig;
-import com.common.oa.services.AdminService;
-import com.common.oa.services.MenuService;
-import com.common.oa.services.SubMenuService;
 import com.common.oa.utils.SettingUtils;
 
 /**
@@ -46,6 +40,8 @@ public class InitSysListener implements ApplicationListener<ContextRefreshedEven
 	private SubMenuService subMenuService;
 	@Autowired
 	private CompanyService companyService;
+	@Autowired
+	private EmployeeTypeService employeeTypeService;
 
 	private static String splitSymbol = "";
 
@@ -59,6 +55,7 @@ public class InitSysListener implements ApplicationListener<ContextRefreshedEven
 					initCompany(setting);
 					initAdmin(setting);
 					initMenu(setting);
+					initEmployeeType(setting);
 				}
 			}
 		}
@@ -76,6 +73,36 @@ public class InitSysListener implements ApplicationListener<ContextRefreshedEven
 	}
 
 	/**
+	 * 初始化员工状态信息
+	 * @param setting
+	 */
+	private void initEmployeeType(Setting setting){
+		XMLConfig config = setting.getEmployeeType();
+		logger.info("Init employee type : {}", config.isEnabled());
+		if(config.isEnabled()){
+			for(Map<String, String> map : config.getLists()){
+				for(Map.Entry<String, String> entry : map.entrySet()){
+					String name = entry.getKey();
+					String value = entry.getValue();
+					EmployeeTypeEntity employeeTypeEntity = employeeTypeService.findByName(name);
+					if(employeeTypeEntity == null){
+						employeeTypeEntity = new EmployeeTypeEntity();
+					}
+					employeeTypeEntity.setName(name);
+					employeeTypeEntity.setSort(Integer.valueOf(value));
+					String companyNo = null;
+					for(Map.Entry<String, String> mapCompany : setting.getCompany().getLists().get(0).entrySet()){
+						companyNo = mapCompany.getKey();
+					}
+					CompanyEntity companyEntity = companyService.getCompanyByNo(companyNo);
+					employeeTypeEntity.setCompanyId(companyEntity.getId());
+					employeeTypeService.merge(employeeTypeEntity);
+				}
+			}
+		}
+	}
+
+	/**
 	 * 获取XML内容分隔符
 	 * @param setting
 	 */
@@ -88,6 +115,10 @@ public class InitSysListener implements ApplicationListener<ContextRefreshedEven
 		return null;
 	}
 
+	/**
+	 * 初始化公司
+	 * @param setting
+	 */
 	private void initCompany(Setting setting){
 		XMLConfig config = setting.getCompany();
 		logger.info("INIT COMPANY:{}", config.isEnabled());
@@ -136,12 +167,27 @@ public class InitSysListener implements ApplicationListener<ContextRefreshedEven
 					admin.setCompanyId(company.getId());
 					admin.setUsername(entry.getKey().trim());
 					admin.setIsLocked(false);
+					EmployeeEntity employeeEntity = getEmployeeEntity(admin.getEmployeeEntity());
+					admin.setEmployeeEntity(employeeEntity);
 					adminService.merge(admin);
 				}
 			}
 		}
 	}
-	
+
+	private EmployeeEntity getEmployeeEntity(EmployeeEntity employeeEntity){
+		CompanyEntity companyEntity = companyService.getCompanyByNo("CP1000");
+		if(employeeEntity == null) {
+			employeeEntity = new EmployeeEntity();
+		}
+		employeeEntity.setSex(EmployeeEntity.Sex.MALE);
+		employeeEntity.setCompanyId(companyEntity.getId());
+		employeeEntity.setEmail("--");
+		employeeEntity.setName("超级管理员");
+		employeeEntity.setEmployeeNo("ABC0001");
+		return employeeEntity;
+	}
+
 	/**
 	 * 初始化菜单
 	 * @param setting

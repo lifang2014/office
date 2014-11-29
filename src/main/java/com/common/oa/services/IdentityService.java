@@ -14,6 +14,6 @@ public interface IdentityService extends BaseService<IdentityEntity,Long>{
      * @param clazz
      * @return
      */
-    public String getIdentity(String companyId, Class clazz);
+    public String getIdentity(long companyId, Class clazz);
 
 }

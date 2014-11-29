@@ -42,8 +42,7 @@ public class HrServiceTest extends BaseTest{
     @Autowired
     private PersonalService personalService;
 
-    public HrServiceTest() {
-    }
+    public HrServiceTest() { }
 
 
     /**
@@ -92,10 +91,7 @@ public class HrServiceTest extends BaseTest{
             employeeEntity.setEmail("test@qq.com");
             employeeEntity.setFace("defalt.png");
             employeeEntity.setBirthday(new Date());
-            employeeEntity.setLocked(false);
-            employeeEntity.setPassword(CommonUtils.getInitMD5());
             employeeEntity.setTel("15918761342");
-            employeeEntity.setPolitacal(EmployeeEntity.Politacal.NONE);
             employeeEntity.setSex(EmployeeEntity.Sex.FEMALE);
             employeeEntity.setEmployeeType(employeeTypeEntity);
             employeeEntity.setOrganization(organizationEntity);
@@ -129,7 +125,7 @@ public class HrServiceTest extends BaseTest{
             CompanyEntity company = companyService.getCompanyByNo("CP1000");
             Assert.assertNotNull(company);
             personal.setCompanyId(company.getId());
-            personal.setBeforeName("李四");
+            personal.setAlias("李四");
             personal.setHomeAddress("江西南昌");
 //        personal.setContacts();
 //        personal.setFamilys();
@@ -139,12 +135,15 @@ public class HrServiceTest extends BaseTest{
             personal.setIdCard("72472942432424234676");
             personal.setIdCardValid(new Date());
             personal.setPhyle("汉族");
+            personal.setPolitacal(PersonalEntity.Politacal.GENERAL);
             personal.setMarriage(PersonalEntity.Marriage.UNMARRIED);
             personal.setPassport("345665755644");
+            personal.setHomeAddress("江西省赣州市南康区潭口镇XXX号XXX小区");
             personal.setPassportValid(new Date());
             personalService.persist(personal);
         }
     }
+
 
     @Test
     public void testDeletePersonal(){
@@ -152,6 +151,5 @@ public class HrServiceTest extends BaseTest{
         for(PersonalEntity personal : lstPersonals){
             personalService.delete(personal.getId());
         }
-//        personalService.delete(lstPersonals);
     }
 }

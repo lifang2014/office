@@ -2,6 +2,7 @@ package com.common.oa.test.services;
 
 import com.common.oa.entity.AdminEntity;
 import com.common.oa.entity.IdentityEntity;
+import com.common.oa.entity.OrganizationEntity;
 import com.common.oa.services.IdentityService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,12 +22,18 @@ public class IdentityServiceTest extends BaseTest{
 
     @Test
     public void getIdentity(){
-        String no = identityService.getIdentity("AJ324234", AdminEntity.class);
+        String no = identityService.getIdentity(1L, OrganizationEntity.class);
         logger.info("The identity is : {}", no);
     }
 
     @Test
     public void saveIdentity(){
         IdentityEntity identityEntity = new IdentityEntity();
+        identityEntity.setValue(1000L);
+        identityEntity.setKeyword("ABC");
+        identityEntity.setCompanyId(1L);
+        identityEntity.setClazz(OrganizationEntity.class.getName());
+        identityEntity.setStep(5);
+        identityService.persist(identityEntity);
     }
 }

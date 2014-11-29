@@ -2,6 +2,8 @@ package com.common.oa.method;
 
 import com.common.oa.utils.DESUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
 
 /**
@@ -9,6 +11,8 @@ import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
  * Created by Jerry on 2014/11/13.
  */
 public class EncryptPropertyConfigurer extends PropertyPlaceholderConfigurer{
+
+    private Logger logger = LoggerFactory.getLogger(EncryptPropertyConfigurer.class);
 
     private String[] encryptPropNames = {"jdbc.username","jdbc.password"};
 
@@ -20,11 +24,10 @@ public class EncryptPropertyConfigurer extends PropertyPlaceholderConfigurer{
      */
     @Override
     protected String convertProperty(String propertyName, String propertyValue) {
-        System.out.println("===========================================");
-        System.out.println("===========================================");
-        System.out.println("===========================================");
+        logger.info("The properties name is : {}, value is : ", propertyName, propertyValue);
         if(isEncryptProp(propertyName)){
             String decryptValue = DESUtils.getDecryptString(propertyValue);
+            logger.info(decryptValue);
             return decryptValue;
         }else{
             return propertyValue;
@@ -44,5 +47,6 @@ public class EncryptPropertyConfigurer extends PropertyPlaceholderConfigurer{
         }
         return false;
     }
+
 
 }

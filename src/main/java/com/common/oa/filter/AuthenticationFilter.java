@@ -30,7 +30,7 @@ public class AuthenticationFilter extends FormAuthenticationFilter{
 			ServletResponse response) {
 		String username = getUsername(request);
 		String password = getPassword(request);
-		boolean rememberMe = isRememberMe(request);
+		boolean rememberMe = true;
 		String host = getHost(request);
 		return new UsernamePasswordToken(username, password, rememberMe, host);
 	}

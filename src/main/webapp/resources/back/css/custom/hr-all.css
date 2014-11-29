@@ -1,5 +1,7 @@
 
 body{font-size:11px;font-family:"Microsoft YaHei";}
+
+
 #tb_hr{margin-top: 0px;}
 #tb_hr .td_title{width: 90px;padding-left: 0px;}
 #tb_hr .td_face{width: 135px;margin-left: 5px;padding-left: 0px;}
@@ -25,3 +27,18 @@ body{font-size:11px;font-family:"Microsoft YaHei";}
     line-height: 31px;
     text-indent: 1em;
 }
+
+.td_icon{float:right;cursor: pointer;margin-right: 10px;}
+.td_select{
+    border: none;
+    background-image: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    width: 100px;
+    overflow: hidden;}
+.input_edit_emp_status{
+    font-family: "Microsoft YaHei";
+    height: 20px;
+    border: none;
+}
+#hr_select_emp_type{display: none}

@@ -17,4 +17,5 @@ public class EmployeeServiceImpl extends BaseServiceImpl<EmployeeEntity,Long> im
     public void setBaseDao(BaseDao<EmployeeEntity, Long> baseDao) {
         super.setBaseDao(baseDao);
     }
+
 }
