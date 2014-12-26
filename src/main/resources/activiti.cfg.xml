@@ -27,6 +27,11 @@ http://www.springframework.org/schema/tx http://www.springframework.org/schema/t
         <property name="jdbcPassword" value="admin"></property>
         <!-- 没有表创建表 -->
         <property name="databaseSchemaUpdate" value="true"></property>
+
+        <!-- 中文乱码问题 -->
+        <property name="activityFontName" value="宋体"></property>
+        <property name="labelFontName" value="宋体"></property>
+
     </bean>
 
 </beans>

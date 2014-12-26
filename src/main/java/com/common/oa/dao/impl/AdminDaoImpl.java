@@ -1,23 +1,15 @@
 package com.common.oa.dao.impl;
 
+import com.common.oa.dao.AdminDao;
+import com.common.oa.entity.AdminEntity;
+import org.springframework.stereotype.Repository;
+
 import javax.persistence.NoResultException;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import javax.persistence.metamodel.EntityType;
-import javax.servlet.http.HttpServletRequest;
-
-import org.springframework.stereotype.Repository;
-
-import com.common.oa.dao.AdminDao;
-import com.common.oa.entity.AdminEntity;
-import org.springframework.web.context.request.RequestAttributes;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
-import org.springframework.web.servlet.mvc.condition.RequestConditionHolder;
-
-import java.security.Principal;
 
 @Repository
 public class AdminDaoImpl extends BaseDaoImpl<AdminEntity, Long> implements AdminDao {
@@ -44,6 +36,7 @@ public class AdminDaoImpl extends BaseDaoImpl<AdminEntity, Long> implements Admi
 		}catch(NoResultException e){
 			return null;
 		}
+
 	}
 
 	/**

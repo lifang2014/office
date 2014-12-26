@@ -9,7 +9,9 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.InputStream;
 import java.util.List;
+import java.util.zip.ZipInputStream;
 
 /**
  * 学习Activiti demo 01
@@ -36,6 +38,19 @@ public class HelloWorldTest {
         logger.info("部署名称: {}", deployment.getName());
     }
 
+    @Test
+    public void testDeploymentProcessDefinitionZip(){
+        InputStream in = this.getClass().getClassLoader().getResourceAsStream("activiti/helloword.zip");
+        ZipInputStream zin = new ZipInputStream(in);
+        Deployment deployment = processEngine.getRepositoryService()
+                .createDeployment()
+                .name("hello-world-zip")
+                .addZipInputStream(zin)
+                .deploy();
+        logger.info("部署ID : {}",deployment.getId());
+        logger.info("部署名称: {}", deployment.getName());
+    }
+
 
     /**
      * 驱动流程实例
@@ -48,6 +63,7 @@ public class HelloWorldTest {
         logger.info("流程实例ID : {}", processInstance.getId());
         logger.info("流程定义ID : {}", processInstance.getProcessDefinitionId());
     }
+
 
     /**
      * 查询当前任务
