@@ -20,6 +20,7 @@ import org.springframework.stereotype.Component;
 import com.common.oa.params.Setting;
 import com.common.oa.params.XMLConfig;
 import com.common.oa.utils.SettingUtils;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Spring容器启动后执行,初始化信息
@@ -53,7 +54,7 @@ public class InitSysListener implements ApplicationListener<ContextRefreshedEven
 				splitSymbol = getSplitSymbol(setting);
 				if(StringUtils.isNotBlank(splitSymbol)) {
 					initCompany(setting);
-					initAdmin(setting);
+//					initAdmin(setting);
 					initMenu(setting);
 					initEmployeeType(setting);
 				}
@@ -144,6 +145,7 @@ public class InitSysListener implements ApplicationListener<ContextRefreshedEven
 	/**
 	 * 初始化管理员信息
 	 */
+	@Transactional
 	private void initAdmin(Setting setting){
 		XMLConfig config = setting.getAdmin();
 		logger.info("INIT SYSTEM:{}", config.isEnabled());
@@ -175,6 +177,7 @@ public class InitSysListener implements ApplicationListener<ContextRefreshedEven
 		}
 	}
 
+	@Transactional(readOnly = true)
 	private EmployeeEntity getEmployeeEntity(EmployeeEntity employeeEntity){
 		CompanyEntity companyEntity = companyService.getCompanyByNo("CP1000");
 		if(employeeEntity == null) {
@@ -192,6 +195,7 @@ public class InitSysListener implements ApplicationListener<ContextRefreshedEven
 	 * 初始化菜单
 	 * @param setting
 	 */
+	@Transactional
 	private void initMenu(Setting setting){
 		XMLConfig config = setting.getMenu();
 		logger.info("INIT SYSTEM MENU:{}", config.isEnabled());

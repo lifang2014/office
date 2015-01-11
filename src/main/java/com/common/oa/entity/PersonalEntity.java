@@ -195,6 +195,8 @@ public class PersonalEntity extends BaseEntity{
         this.msn = msn;
     }
 
+
+
     @Transient
     public String getMarriageText() {
         if(Marriage.UNMARRIED == this.getMarriage()){

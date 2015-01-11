@@ -95,7 +95,7 @@ public class HrServiceTest extends BaseTest{
             employeeEntity.setSex(EmployeeEntity.Sex.FEMALE);
             employeeEntity.setEmployeeType(employeeTypeEntity);
             employeeEntity.setOrganization(organizationEntity);
-            employeeEntity.setPosition(positionEntity);
+//            employeeEntity.setPosition(positionEntity);
             employeeEntity.setJob(jobEntity);
             lstEmployees.add(employeeEntity);
         }
@@ -131,7 +131,7 @@ public class HrServiceTest extends BaseTest{
 //        personal.setFamilys();
             personal.setHeight(170F);
             personal.setWeight(56F);
-            personal.setEmployee(employee);
+//            personal.setEmployee(employee);
             personal.setIdCard("72472942432424234676");
             personal.setIdCardValid(new Date());
             personal.setPhyle("汉族");

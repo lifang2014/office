@@ -70,7 +70,7 @@ public class HelloWorldTest {
      */
     @Test
     public void testFindCurrentTask(){
-        String assignee = "李四";
+        String assignee = "zhansan";
         List<Task> lstTask = processEngine.getTaskService()
                 .createTaskQuery()
                 .taskAssignee(assignee)

@@ -30,7 +30,7 @@ http://www.springframework.org/schema/tx http://www.springframework.org/schema/t
 
         <!-- 中文乱码问题 -->
         <property name="activityFontName" value="宋体"></property>
-        <property name="labelFontName" value="宋体"></property>
+        <property name="labelFontName" value="宋体"/>
 
     </bean>
 

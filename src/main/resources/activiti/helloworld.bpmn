@@ -3,9 +3,9 @@
   <process id="helloworld" isClosed="false" isExecutable="true" name="helloworldProcess" processType="None">
     <startEvent id="startevent1" name="Start"/>
     <endEvent id="endevent1" name="End"/>
-    <userTask activiti:assignee="瀵姳绗�" activiti:exclusive="true" id="usertask1" name="HR鍒濋潰"/>
-    <userTask activiti:assignee="閺夊骸娲�" activiti:exclusive="true" id="usertask2" name="閮ㄩ棬缁忕悊绗簩闈�"/>
-    <userTask activiti:assignee="閻滃绨�" activiti:exclusive="true" id="usertask3" name="鎬荤粡鐞嗙涓夐潰"/>
+    <userTask activiti:assignee="闂傚倸鍊搁崐鎼佸磹閹间礁纾圭�瑰嫭鍣磋ぐ鎺戠倞妞ゆ帒顦伴弲顏堟偡濠婂啰绠婚柡浣规崌閹崇偤濡疯閺嬫棃姊洪崫鍕櫧濠电儑鎷烽梺闈涙缁�渚�鍩㈡惔銊ョ闁告劖褰冮弫銈嗕繆閻愵亜锟芥牠骞愭ィ鍐ㄧ；闁绘柨鍚嬮崑姗�鏌曟径鍫濆姉闁猴拷閼恒儯浜滈柡鍐挎嫹闁哄绮粭鐔封槈閵忥紕鍘卞┑鈽嗗灠濠�閬嶆儗濞嗘埊鎷风憴鍕┛缂傚稄鎷风紓浣哄У閻╊垰顕ｉ幘顕呮晜闁告侗鍙庢导鎾绘⒑閼姐倕鏋戦柣鐔村劤閿熻姤鍑归崢鍓у垝閸儲鏅搁柦妯侯槴閺�浠嬫煟閹邦垰鐨烘繝锟介幘顔界厱闁哄倹瀵ч幑锝夋煕閹烘挸绗氱紒缁樼箓椤繈顢楅崒婊勭秮闂傚倷绀佹竟濠囧磻閸℃稑绐楅柟鎹愵嚙閻鏌涢埄鍐檨闁抽攱鍨圭槐鎾存媴閼测剝鍨圭划鍫ユ晸娴犲鈷戠紒瀣皡瀹搞儲绻濋敓浠嬫焼瀹ュ棙娅㈤梺鍏间航閸庢娊宕弻銉︾厵闁告垯鍊栫�氾拷" activiti:exclusive="true" id="usertask1" name="HR INTERVIEW"/>
+    <userTask activiti:assignee="闂傚倸鍊搁崐鎼佸磹閹间礁纾归柟闂寸绾惧綊鏌熼梻瀵割槮缁惧墽鎳撻—鍐拷锝庝簼閹癸綁鏌ｉ鐐搭棞闁靛棙甯掗～婵嬫倷椤掞拷椤忚埖淇婇妶鍥ラ柛瀣仱閹囨偐濮瑰浄鎷锋笟锟藉鏉戭潩鏉堚敩銏ゆ⒒娴ｈ鍋犻柛搴㈡そ瀹曟粓鏁冮崒姘�悗骞垮劚濡稓绮绘ィ鍐╃厵閺夊牆澧界粔顕�鏌涘┑鍫濆妺闁靛洤瀚板顕�鏁撻挊澶樻綎闁煎鍊栭～鏇㈡煙閹呮憼濠殿垱鎸抽弻娑㈠箻閺夋垹绁烽梺鍛婃崌娴滆泛顫忓ú顏勭閹艰揪绲哄銊モ攽閻愭彃绾ч柣妤佺矒瀹曪綁宕ㄩ褎瀵岄梺闈涚墕閹虫劗绮绘导瀛樼厵闁告劘灏欑粻浼存煃鐠囪尙效濠殿噯鎷烽梺闈涚墕濡矂骞忓ú顏呯厽闁绘ê鍘栭懜顏堟煕閺傝儻瀚伴柍璇茬Ч楠炲洭鎮ч崼銏犲箥闂備礁鎲￠崹顖炲磹閺嶎偓鎷峰鐐" activiti:exclusive="true" id="usertask2" name="CTO INTERVIEW"/>
+    <userTask activiti:assignee="闂傚倸鍊搁崐鎼佸磹閹间礁纾归柟闂寸绾惧綊鏌熼梻瀵割槮缁炬儳缍婇弻锝夊箣閿濆憛鎾绘煕閵堝懎顏柡灞剧洴楠炴﹢鎳犻澶嬓滈梻浣规偠閸斿秶鎹㈤崘顔嘉﹂柛鏇ㄥ灠閸愶拷闂侀潧臎閸涱垰甯庨梻鍌欑劍閹爼宕濆鍥ㄥ床闁告洦鍨遍弲鎼佹煟閿濆懏婀版い蹇曞枛閺岀喐顦版惔鈥冲箣闂佸搫鏈惄顖氼嚕閹绢喗鍊烽柛蹇撴憸妞规娊姊绘担鍛婃儓闁硅櫕鍔欏畷鎴﹀Χ閸滀焦缍庡┑鐐叉▕娴滄粌顔忓┑鍡忔斀闁绘ɑ褰冮弳娆愩亜閿旇娅婃慨濠冩そ瀹曘劍绻濋崟顒�娈忛梻浣告贡閸忔﹢寮ㄦ潏鈺傚床婵犻潧妫岄弸鏃堟煕椤垵鏋熼柣蹇撶У缁绘繈鎮介棃娑楃捕闂佹寧娲︽禍婊堫敋閿濆棛绡�婵﹩鍎甸埡鍛厓闁告繂瀚敓钘夋啞缁傚秹鎮欓悜妯锋嫼缂備礁顑嗙�笛冿耿閹殿喚纾奸悗锝庡亜閻忓瓨銇勯姀鈩冾棃闁轰焦鎹囬弫鎾绘晸閿燂拷" activiti:exclusive="true" id="usertask3" name="BOSS INTERVIEW"/>
     <sequenceFlow id="flow1" sourceRef="startevent1" targetRef="usertask1"/>
     <sequenceFlow id="flow2" sourceRef="usertask1" targetRef="usertask2"/>
     <sequenceFlow id="flow3" sourceRef="usertask2" targetRef="usertask3"/>

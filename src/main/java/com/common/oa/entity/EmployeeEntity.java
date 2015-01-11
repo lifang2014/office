@@ -29,7 +29,7 @@ public class EmployeeEntity extends BaseEntity {
     private EmployeeTypeEntity employeeType;//员工状态
     private PersonalEntity personal = new PersonalEntity();//个人信息
     private OrganizationEntity organization;
-    private PositionEntity position;//岗位
+//    private PositionEntity position;//岗位
     private JobEntity job;//职务
 
     @Column(length = 20)
@@ -70,15 +70,15 @@ public class EmployeeEntity extends BaseEntity {
         this.birthday = birthday;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "positionId")
-    public PositionEntity getPosition() {
-        return position;
-    }
-
-    public void setPosition(PositionEntity position) {
-        this.position = position;
-    }
+//    @ManyToOne
+//    @JoinColumn(name = "positionId")
+//    public PositionEntity getPosition() {
+//        return position;
+//    }
+//
+//    public void setPosition(PositionEntity position) {
+//        this.position = position;
+//    }
 
     @ManyToOne
     @JoinColumn(name = "jobId")
